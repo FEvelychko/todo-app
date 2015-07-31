@@ -5,7 +5,9 @@
     (function () {
         "use strict";
 
-        function Todo(){};
+        function Todo(){
+            this.editData = new EditData();
+        };
         var todo = new Todo();
 
     }());
