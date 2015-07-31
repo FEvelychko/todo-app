@@ -1,0 +1,45 @@
+
+.container{
+    display: block;
+    margin-top: -22px;
+    margin-right: -15px;
+    margin-left: -15px;
+    height: 400px;
+    background-color: #68AC61;
+    text-align: center;
+}
+h1{
+    margin: 0;
+    font-size: 100px;
+}
+.new-todo{
+    position: relative;
+    margin: 0;
+    width: 500px;
+    font-size: 24px;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: 1.4em;
+    outline: none;
+    color: inherit;
+    padding: 16px 16px 16px 60px;
+    border: 1px solid #999;
+    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+.destroy {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    margin: auto 0;
+    font-size: 30px;
+    color: #cc9a9a;
+    margin-bottom: 11px;
+    transition: color 0.2s ease-out;
+}
