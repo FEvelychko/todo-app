@@ -3,20 +3,31 @@
  */
 
 
-    (function (window){
-        "use strict";
+    (function (){
+        //"use strict";
 
-        function EditData(e){
-            var that = this;
-            var para = document.createElement("p");
-            var element = document.getElementById("block");
-            if(e.keyCode == 13){
-                that.result = document.getElementById("newTodo").value;
-                document.getElementById("newTodo").value = "";
-                para.appendChild(document.createTextNode(that.result));
-                return element.appendChild(para);
-            }
-        };
+            function EditData(addTemplate){
+                var that = this;
+                that.addTemplate = addTemplate;
+                var template = document.createElement("div");
+                var element = document.getElementById("block");
+                if(event.keyCode == 13){
+                    template.setAttribute('class', 'newblock');
+                    template.innerHTML = '<p id = "textInput" class = "textInput"></p>';
+                    that.result = document.getElementById("newTodo").value;
+                    template.appendChild(document.createTextNode(that.result));
+                    document.getElementById("newTodo").value = "";
+                    return element.appendChild(template);
+                }
+            };
 
-        var handler  = document.addEventListener('keyup', EditData);
-    }());
+            var handler  = document.addEventListener('keyup', EditData);
+        }());
+
+
+
+
+
+
+
+

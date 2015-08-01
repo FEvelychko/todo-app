@@ -29,6 +29,46 @@ h1{
     -webkit-font-smoothing: antialiased;
 }
 
+
+.newblockFirst{
+    border: 1px solid green;
+    text-align: center;
+    margin: 0 auto;
+    background-color: white;
+    width: 478px;
+    height: 50px;
+    position: relative;
+    display: none;
+    padding: 10px;
+}
+
+.newblock{
+    border: 1px solid green;
+    text-align: center;
+    margin: 0 auto;
+    background-color: white;
+    width: 478px;
+    height: 50px;
+    position: relative;
+    display: block;
+    padding: 10px;
+}
+
+
+/*.toggle{
+    text-align: center;
+    width: 40px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    border: none; /* Mobile Safari
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+
 .destroy {
     display: block;
     position: absolute;
