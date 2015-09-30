@@ -13,6 +13,9 @@
         margin: 0;
         font-size: 100px;
     }
+    .new-block-todo{
+        width: 100%;
+    }
     .new-todo{
         position: relative;
         margin: 0;
@@ -28,6 +31,9 @@
         box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
         box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
+    }
+    .new-todo-added{
+        width: 500px;
     }
 
     .destroy {
