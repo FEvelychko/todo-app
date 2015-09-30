@@ -19,10 +19,11 @@
 
     function deleteValue(){
         //debugger;
-        this.style.backgroundColor = "green";
-        this.parentElement.removeChild(this.parentElement.children);
-
-        //console.log(this.parentElement.children[0]);
+        this.style.backgroundColor = "red";
+        todoList.removeChild(this.parentElement);
+        //for(var x = 0; x < 2; x++){
+            //this.parentElement.removeChild(this.parentElement.childNodes[0]);
+        //}
     }
 
     function addNewToDo(info){
@@ -34,6 +35,7 @@
         input.className = "add-new-todo";
         btn.className = "btn-deleted";
 
+        btn.innerHTML = "delete";
         input.value = info;
         btn.onclick = deleteValue;
         check(info, li, input, btn);
