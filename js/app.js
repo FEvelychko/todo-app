@@ -2,36 +2,46 @@
 
     //"use strict";
 
-    //var btn = document.getElementById('btn');
-    var input = document.getElementById('input');
-    var block = document.getElementById('block');
+    var inp = document.getElementById('input');
+    var todoList = document.getElementById('todo-list');
 
     function updateValue(){
-        return input.value = "";
+        return inp.value = "";
     }
 
-    function check(value, p, div){
-        if(value === ""){
-            return false;
+    function check(value, li, input, btn){
+        if(value !== ""){
+            li.appendChild(input);
+            li.appendChild(btn);
+            todoList.appendChild(li);
         }
-        else{
-            div.appendChild(p);
-            block.appendChild(div);
-        }
+    }
+
+    function deleteValue(){
+        //debugger;
+        this.style.backgroundColor = "green";
+        this.parentElement.removeChild(this.parentElement.children);
+
+        //console.log(this.parentElement.children[0]);
     }
 
     function addNewToDo(info){
-        var div = document.createElement('div');
-        var p = document.createElement('input');
-        div.className = "new-block-todo";
-        p.className = "new-todo";
-        p.value = info;
-        check(info, p, div);
+        var li = document.createElement('li');
+        var input = document.createElement('input');
+        var btn = document.createElement('button');
+
+        li.className = "new-li";
+        input.className = "add-new-todo";
+        btn.className = "btn-deleted";
+
+        input.value = info;
+        btn.onclick = deleteValue;
+        check(info, li, input, btn);
+
     }
 
     function eventHandler(callUpdate){
-        var val = input.value;
-        console.log(val);
+        var val = inp.value;
         callUpdate();
         addNewToDo(val);
     }
@@ -45,6 +55,18 @@
             return false;
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
