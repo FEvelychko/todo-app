@@ -39,10 +39,28 @@
          box-sizing: border-box;
          -webkit-font-smoothing: antialiased;
      }
+    .left-items{
+        font-size: large;
+        width: 20%;
+        height: 100%;
+        float: left;
+        padding-top: 45px;
+        color: darkgreen;
+    }
+    .menu{
+        display: none;
+        margin: 0 auto;
+        height: 70px;
+        background-color: aquamarine;
+        width: 499px;
+        font-size: 20px;
+        font-family: inherit;
+        font-weight: inherit;
+    }
     .add-new-todo{
         /*position: relative;*/
         /*margin: 0;*/
-        width: 90%;
+        width: 85.8%;
         font-size: 24px;
         font-family: inherit;
         font-weight: inherit;
