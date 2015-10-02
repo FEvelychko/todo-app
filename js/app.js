@@ -7,6 +7,7 @@
     var leftItems = document.getElementById('left-items');
     var menuDiv = document.querySelector('div.menu');
     var childrenToDo = 0;
+    var kozel  =  0;
 
     function updateValue(){
 
@@ -29,6 +30,7 @@
 
         todoList.removeChild(this.parentElement);
         showInclDelToDo();
+        childrenToDo -= 1;
         //for(var x = 0; x < 2; x++){
             //this.parentElement.removeChild(this.parentElement.childNodes[0]);
         //}
@@ -54,7 +56,26 @@
 
     }
 
+    function checkSubmit(){
+        //debugger;
+        //if(this.checked === true){
+            /*for(var i = 0; i <= this.parentElement.children.length; i++){
+                if(this.parentElement.children[i].checked === true){
+                    kozel += 1;
+                    leftItems.innerHTML = Math.floor((childrenToDo + 1) - kozel) + " items left";
+                }
+                else{
+                    kozel -= 1;
+                    leftItems.innerHTML = Math.floor((childrenToDo + 1) - kozel) + " items left";
+                }
+            }*/
+
+        //}
+
+    }
+
     function addNewToDo(info){
+        //debugger;
 
         var li = document.createElement('li');
         var checkbox = document.createElement('input');
@@ -67,10 +88,10 @@
         li.className = "new-li";
         input.className = "add-new-todo";
         btn.className = "btn-deleted";
-
         btn.innerHTML = "delete";
         input.value = info;
         btn.onclick = deleteValue;
+        checkbox.onclick = checkSubmit;
         showTotalToDo();
         check(info, li, checkbox, input, btn);
 
