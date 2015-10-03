@@ -6,6 +6,7 @@
     var todoList = document.getElementById('todo-list');
     var leftItems = document.getElementById('left-items');
     var menuDiv = document.querySelector('div.menu');
+    var clear = document.getElementById('clear');
     var childrenToDo = 0;
     var kozel  =  0;
 
@@ -27,10 +28,10 @@
     }
 
     function deleteValue(){
-
+        //debugger;
         todoList.removeChild(this.parentElement);
         showInclDelToDo();
-        childrenToDo -= 1;
+
         //for(var x = 0; x < 2; x++){
             //this.parentElement.removeChild(this.parentElement.childNodes[0]);
         //}
@@ -56,9 +57,26 @@
 
     }
 
+    function clearCurrentValue(x){
+        //debugger;
+        //var bla = this;
+        todoList.removeChild(x.parentElement);
+        showInclDelToDo();
+
+    }
+
     function checkSubmit(){
         //debugger;
-        //if(this.checked === true){
+        //childrenToDo = todoList.children.length;
+        var x = this;
+        if(x.checked === true) {
+            clear.addEventListener('click', function(x){
+                return clearCurrentValue(x);
+            }.bind(checkSubmit, x), false);
+
+            /*kozel += 1;
+            leftItems.innerHTML = Math.floor((childrenToDo + 1) - kozel) + " items left";*/
+        }
             /*for(var i = 0; i <= this.parentElement.children.length; i++){
                 if(this.parentElement.children[i].checked === true){
                     kozel += 1;
@@ -91,6 +109,8 @@
         btn.innerHTML = "delete";
         input.value = info;
         btn.onclick = deleteValue;
+
+        //clear.onclick
         checkbox.onclick = checkSubmit;
         showTotalToDo();
         check(info, li, checkbox, input, btn);
@@ -116,6 +136,10 @@
         }
 
     }
+
+    clear.addEventListener('click', deleteValue, false);
+
+
 
 
 

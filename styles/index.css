@@ -85,3 +85,19 @@
         border-style: none;
         cursor: pointer;
     }
+    .clear-completed{
+        font-size: large;
+        width: 30%;
+        height: 100%;
+        float: right;
+        padding-top: 45px;
+        color: darkgreen;
+    }
+    button.clear{
+        float: right;
+        background-color: cornflowerblue;
+        border: none;
+        font-family: cursive;
+        font-size: 15px;
+        cursor: pointer;
+    }
