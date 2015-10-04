@@ -1,12 +1,15 @@
 
 
     //"use strict";
-
+    //debugger;
     var inp = document.getElementById('input');
     var todoList = document.getElementById('todo-list');
     var leftItems = document.getElementById('left-items');
     var menuDiv = document.querySelector('div.menu');
     var clear = document.getElementById('clear');
+    var all = document.getElementById('all');
+    var active = document.getElementById('active');
+    var completed = document.getElementById('completed');
     var childrenToDo = 0;
     var kozel  =  0;
 
@@ -25,10 +28,57 @@
             todoList.appendChild(li);
         }
 
+
     }
 
-    function deleteValue(){
+    function showAll(){
         //debugger;
+
+        all.style.backgroundColor = 'cornflowerblue';
+        active.style.backgroundColor = '';
+        completed.style.backgroundColor = '';
+        for(var x = 0; x < todoList.children.length; x++){
+            if(todoList.children[x].children[0].checked === false || todoList.children[x].children[0].checked === true){
+                todoList.children[x].style.display = 'inline-block';
+            }
+        }
+
+    };
+
+    function showActive(){
+
+        all.style.backgroundColor = '';
+        active.style.backgroundColor = 'cornflowerblue';
+        completed.style.backgroundColor = '';
+        for(var x = 0; x < todoList.children.length; x++){
+            if(todoList.children[x].children[0].checked === true){
+                todoList.children[x].style.display = 'none';
+            }
+            else if(todoList.children[x].children[0].checked === false){
+                todoList.children[x].style.display = 'inline-block';
+            }
+        }
+
+    };
+
+    function showCompleted(){
+
+        all.style.backgroundColor = '';
+        active.style.backgroundColor = '';
+        completed.style.backgroundColor = 'cornflowerblue';
+        for(var x = 0; x < todoList.children.length; x++){
+            if(todoList.children[x].children[0].checked === true){
+                todoList.children[x].style.display = 'inline-block';
+            }
+            else if(todoList.children[x].children[0].checked === false){
+                todoList.children[x].style.display = 'none';
+            }
+        }
+
+    };
+
+    function deleteValue(){
+
         todoList.removeChild(this.parentElement);
         showInclDelToDo();
 
@@ -60,6 +110,7 @@
     function clearCurrentValue(x){
         //debugger;
         //var bla = this;
+        //debugger;
         todoList.removeChild(x.parentElement);
         showInclDelToDo();
 
@@ -73,7 +124,6 @@
             clear.addEventListener('click', function(x){
                 return clearCurrentValue(x);
             }.bind(checkSubmit, x), false);
-
             /*kozel += 1;
             leftItems.innerHTML = Math.floor((childrenToDo + 1) - kozel) + " items left";*/
         }
@@ -93,8 +143,6 @@
     }
 
     function addNewToDo(info){
-        //debugger;
-
         var li = document.createElement('li');
         var checkbox = document.createElement('input');
         var input = document.createElement('input');
@@ -109,8 +157,6 @@
         btn.innerHTML = "delete";
         input.value = info;
         btn.onclick = deleteValue;
-
-        //clear.onclick
         checkbox.onclick = checkSubmit;
         showTotalToDo();
         check(info, li, checkbox, input, btn);
@@ -138,6 +184,10 @@
     }
 
     clear.addEventListener('click', deleteValue, false);
+    all.addEventListener('click', showAll, false);
+    active.addEventListener('click', showActive, false);
+    completed.addEventListener('click', showCompleted, false);
+
 
 
 

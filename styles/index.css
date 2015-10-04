@@ -101,3 +101,26 @@
         font-size: 15px;
         cursor: pointer;
     }
+    div.status{
+        width: 50%;
+        float: left;
+        height: 100%;
+        /*color: darkgreen;*/
+        padding-top: 25px;
+        font-size: large;
+    }
+    ul.filters{
+        display: inline-flex;
+        list-style-type: none;
+    }
+    a{
+        text-decoration: none;
+        color: darkgreen;
+    }
+    a:hover {
+        color:darkgray;
+    }
+    li.fields{
+        margin: 0 5px;
+        cursor: pointer;
+    }
