@@ -11,7 +11,7 @@
     var active = document.getElementById('active');
     var completed = document.getElementById('completed');
     var childrenToDo = 0;
-    var kozel  =  0;
+    //var kozel  =  0;
 
     function updateValue(){
 
@@ -32,14 +32,15 @@
     }
 
     function showAll(){
-        //debugger;
 
+        //debugger;
         all.style.backgroundColor = 'cornflowerblue';
         active.style.backgroundColor = '';
         completed.style.backgroundColor = '';
         for(var x = 0; x < todoList.children.length; x++){
             if(todoList.children[x].children[0].checked === false || todoList.children[x].children[0].checked === true){
                 todoList.children[x].style.display = 'inline-block';
+                leftItems.innerHTML = todoList.children.length + " items left";
             }
         }
 
@@ -47,6 +48,8 @@
 
     function showActive(){
 
+        //debugger;
+        var kozel = 0;
         all.style.backgroundColor = '';
         active.style.backgroundColor = 'cornflowerblue';
         completed.style.backgroundColor = '';
@@ -56,6 +59,8 @@
             }
             else if(todoList.children[x].children[0].checked === false){
                 todoList.children[x].style.display = 'inline-block';
+                kozel += 1;
+                leftItems.innerHTML = kozel + " items left";
             }
         }
 
@@ -63,15 +68,19 @@
 
     function showCompleted(){
 
+        var kozel = 0;
         all.style.backgroundColor = '';
         active.style.backgroundColor = '';
         completed.style.backgroundColor = 'cornflowerblue';
         for(var x = 0; x < todoList.children.length; x++){
             if(todoList.children[x].children[0].checked === true){
                 todoList.children[x].style.display = 'inline-block';
+                kozel += 1;
+                leftItems.innerHTML = kozel + " items left";
             }
             else if(todoList.children[x].children[0].checked === false){
                 todoList.children[x].style.display = 'none';
+                leftItems.innerHTML = kozel + " items left";
             }
         }
 
@@ -119,6 +128,7 @@
     function checkSubmit(){
         //debugger;
         //childrenToDo = todoList.children.length;
+        var kozel = 0;
         var x = this;
         if(x.checked === true) {
             clear.addEventListener('click', function(x){
@@ -143,6 +153,7 @@
     }
 
     function addNewToDo(info){
+
         var li = document.createElement('li');
         var checkbox = document.createElement('input');
         var input = document.createElement('input');
