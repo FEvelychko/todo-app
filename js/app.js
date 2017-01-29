@@ -99,6 +99,7 @@
 
     function showInclDelToDo(){
 
+        var foo = null;
         childrenToDo = todoList.children.length;
         leftItems.innerHTML = Math.floor(childrenToDo) + " items left";
         if(childrenToDo === 0){
